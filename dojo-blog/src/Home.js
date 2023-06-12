@@ -8,11 +8,15 @@ const Home = () => {
         { title: 'Hello World', body: 'lorem ipsum...', author: 'pit', id:2},
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'luigi', id:3}
     ]);
+
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs)
+    }
     
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All titles!!"/>
-            <BlogList blogs={blogs.filter((blogs) => blogs.author == 'mario')} title="Mario's Blogs"/>
+            <BlogList blogs={blogs} title="All titles!!" handleDelete={handleDelete} />
         </div>
      );
 }
